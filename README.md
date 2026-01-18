@@ -1,6 +1,6 @@
 # ZyphNoAutoAttack
 
-World of Warcraft Addon that prevents right-click auto attack while allowing other right-click interactions (NPCs, items, etc.).
+World of Warcraft Addon that completely blocks right-click auto attack. Auto attack can only be started via macros using `/znaa attack`.
 
 ## Installation
 
@@ -10,23 +10,29 @@ World of Warcraft Addon that prevents right-click auto attack while allowing oth
    - **Classic:** `World of Warcraft/_classic_/Interface/AddOns/`
 3. Restart WoW or `/reload`
 
+## Usage
+
+**Right-click on enemies:** Auto attack is blocked
+**Right-click on NPCs:** Works normally
+**Start auto attack:** Use `/znaa attack` in a macro
+
+### Example Macro
+
+```
+#showtooltip
+/znaa attack
+```
+
 ## Commands
 
 | Command | Description |
 |---------|-------------|
 | `/znaa` | Show help |
+| `/znaa attack` | Start auto attack (use in macros) |
 | `/znaa on` | Enable the addon |
 | `/znaa off` | Disable the addon |
-| `/znaa combat` | Toggle auto attack permission during combat |
 | `/znaa status` | Show current status |
 
 ## How it works
 
-The addon cannot block mouse clicks directly (Blizzard protection), but it stops auto attack immediately after it starts - so fast you won't notice. NPC interactions, item usage, and other right-click actions work normally.
-
-## Features
-
-- Stops auto attack instantly after right-clicking enemies
-- NPC interactions work normally
-- Optional: Allow auto attack while in combat
-- Settings are saved between sessions
+The addon monitors for auto attack every 50ms and stops it immediately unless it was explicitly started via `/znaa attack`. NPC interactions, item usage, and other right-click actions work normally.
