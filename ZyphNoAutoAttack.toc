@@ -1,0 +1,8 @@
+## Interface: 110002
+## Title: ZyphNoAutoAttack
+## Notes: Prevents right-click auto attack while allowing other right-click interactions
+## Author: Zyph
+## Version: 1.0.0
+## SavedVariables: ZyphNoAutoAttackDB
+
+ZyphNoAutoAttack.lua
